@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8fafc;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 14px 28px;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.primary {
+  background: white;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.primary:hover {
+  background: #e5e7eb;
+}
+
+.secondary {
+  background: #facc15;
+  color: black;
+  font-weight: bold;
+}
+
+.secondary:hover {
+  background: #eab308;
+}
+
+/* Sections */
+.section {
+  padding: 70px 0;
+}
+
+.section h2 {
+  margin-bottom: 20px;
+  color: #1e3a8a;
+}
+
+.section p {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Services */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: #2563eb;
+}
+
+/* Pricing */
+.pricing {
+  background: #eef6ff;
+  padding: 70px 0;
+}
+
+.pricing h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.price-card {
+  background: white;
+  max-width: 600px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.price-card ul {
+  list-style: none;
+}
+
+.price-card li {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+/* Contact */
+.contact {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.contact h2 {
+  margin-bottom: 20px;
+}
+
+.contact p {
+  margin-bottom: 12px;
+}
+
+.contact .btn {
+  margin-top: 25px;
+}
+
+/* Footer */
+.footer {
+  background: black;
+  color: #999;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
