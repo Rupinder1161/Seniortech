@@ -1,5 +1,4 @@
-
-import '../Components/Main.css'
+import '../Components/Main.css';
 
 export default function SeniorTechSupport() {
   const services = [
@@ -72,8 +71,8 @@ export default function SeniorTechSupport() {
           <h2>Contact</h2>
 
           <p>Gurpreet Singh</p>
-          <p>📞 021 XXX XXXX</p>
-          <p>✉ info@seniortechsupport.nz</p>
+          <p>📞 021 457 6040</p>
+          <p>✉ seniortech@gmail.com</p>
 
           <button className="btn secondary">
             Request a Callback

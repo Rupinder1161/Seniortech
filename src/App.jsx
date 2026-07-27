@@ -1,11 +1,12 @@
 //import './App.css';
-import SeniorTechSupport from "../src/Components/Mainpage"
+import SeniorTechSupport from "../src/Components/Mainpage";
+import Header from "../src/Components/Header";
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <SeniorTechSupport/>
-      Test
     </div>
   );
 }
