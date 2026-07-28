@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import '../Components/Main.css';
 
 export default function SeniorTechSupport() {
+  const [statusMessage, setStatusMessage] = useState('');
+
   const services = [
     "Phone & Tablet Help",
     "Computer Support",
@@ -9,6 +12,23 @@ export default function SeniorTechSupport() {
     "Email Assistance",
     "Online Safety & Scam Awareness",
   ];
+
+  const phoneNumber = '+64224576040';
+  const bookingEmail = 'seniortechwellington@gmail.com';
+
+  const handleCallNow = () => {
+    window.open(`tel:${phoneNumber}`, '_self');
+    setStatusMessage('Calling Senior Tech Support now...');
+  };
+
+  const handleBookVisit = () => {
+    const subject = encodeURIComponent('Book a Visit Request');
+    const body = encodeURIComponent(
+      'Hi Senior Tech Support,\n\nI would like to book a visit. Please let me know your availability.'
+    );
+    window.open(`mailto:${bookingEmail}?subject=${subject}&body=${body}`, '_self');
+    setStatusMessage('Opening your email to book a visit.');
+  };
 
   return (
     <div className="app">
@@ -21,9 +41,15 @@ export default function SeniorTechSupport() {
           </p>
 
           <div className="buttons">
-            <button className="btn primary">Call Now</button>
-            <button className="btn secondary">Book a Visit</button>
+            <button className="btn primary" onClick={handleCallNow}>
+              Call Now
+            </button>
+            <button className="btn secondary" onClick={handleBookVisit}>
+              Book a Visit
+            </button>
           </div>
+
+          {statusMessage ? <p className="status-message">{statusMessage}</p> : null}
         </div>
       </header>
 
