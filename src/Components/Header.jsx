@@ -1,6 +1,6 @@
-import "./Main.css";
+import './Main.css';
 
-export default function Header() {
+export default function Header({ route }) {
   const navLinkStyle = {
     color: "#1f2937",
     textDecoration: "none",
@@ -30,14 +30,14 @@ export default function Header() {
           </h2>
         </div>
 
-        <nav style={{ display: "flex", gap: "1rem" }}>
-          <a href="#about" style={navLinkStyle}>
+        <nav style={{ display: 'flex', gap: '1rem' }}>
+          <a href="#/" style={{ ...navLinkStyle, color: route === 'home' ? '#2563eb' : '#1f2937' }}>
+            Home
+          </a>
+          <a href="#/about" style={{ ...navLinkStyle, color: route === 'about' ? '#2563eb' : '#1f2937' }}>
             About
           </a>
-          <a href="#services" style={navLinkStyle}>
-            Services
-          </a>
-          <a href="#contact" style={navLinkStyle}>
+          <a href="#/contact" style={{ ...navLinkStyle, color: route === 'contact' ? '#2563eb' : '#1f2937' }}>
             Contact
           </a>
         </nav>
