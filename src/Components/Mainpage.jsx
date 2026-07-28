@@ -70,9 +70,9 @@ export default function SeniorTechSupport() {
         <div className="container">
           <h2>Contact</h2>
 
-          <p>Gurpreet Singh</p>
-          <p>📞 021 457 6040</p>
-          <p>✉ seniortech@gmail.com</p>
+          <p>Jayden</p>
+          <p>📞 022 457 6040</p>
+          <p>✉ seniortechwellington@gmail.com</p>
 
           <button className="btn secondary">
             Request a Callback
