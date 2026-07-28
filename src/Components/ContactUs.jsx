@@ -16,6 +16,13 @@ export default function ContactUs() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    const subject = encodeURIComponent('New contact request from website');
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nPhone: ${formData.phone}\nBest time to call: ${formData.bestTime}`
+    );
+
+    window.open(`mailto:seniortechwellington@gmail.com?subject=${subject}&body=${body}`, '_self');
     setSubmitted(true);
   };
 

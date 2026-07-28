@@ -18,13 +18,13 @@ export default function SeniorTechSupport() {
 
   const handleCallNow = () => {
     window.open(`tel:${phoneNumber}`, '_self');
-    setStatusMessage('Calling Senior Tech Support now...');
+    setStatusMessage('Calling Senior Tech now...');
   };
 
   const handleBookVisit = () => {
     const subject = encodeURIComponent('Book a Visit Request');
     const body = encodeURIComponent(
-      'Hi Senior Tech Support,\n\nI would like to book a visit. Please let me know your availability.'
+      'Hi Senior Tech,\n\nI would like to book a visit. Please let me know your availability.'
     );
     window.open(`mailto:${bookingEmail}?subject=${subject}&body=${body}`, '_self');
     setStatusMessage('Opening your email to book a visit.');
@@ -34,7 +34,7 @@ export default function SeniorTechSupport() {
     <div className="app">
       <header className="hero">
         <div className="container">
-          <h1>Senior Tech Support Wellington</h1>
+          <h1>Senior Tech Wellington</h1>
           <p>
             Friendly and patient technology support for seniors throughout
             Wellington.
@@ -57,8 +57,18 @@ export default function SeniorTechSupport() {
         <div className="container">
           <h2>About Us</h2>
           <p>
-            We help seniors feel comfortable using smartphones, computers,
-            printers, Wi‑Fi and online services from the comfort of their home.
+            Senior Tech is a friendly, patient service for older adults across
+            Wellington who want help using technology without feeling rushed or
+            confused.
+          </p>
+          <p>
+            We visit homes, set up devices, explain things clearly, and help with
+            everyday tasks such as phone calls, video chats, email, online safety,
+            Wi‑Fi, printers, and scam awareness.
+          </p>
+          <p>
+            Whether it is a first-time setup or ongoing support, the goal is to make
+            technology feel simple, safe, and stress-free at home.
           </p>
         </div>
       </section>
@@ -107,7 +117,7 @@ export default function SeniorTechSupport() {
       </section>
 
       <footer className="footer">
-        © 2026 Senior Tech Support Wellington
+        © 2026 Senior Tech Wellington
       </footer>
     </div>
 

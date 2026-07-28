@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import './Main.css';
 
 export default function Header({ route }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+
   const navLinkStyle = {
     color: "#1f2937",
     textDecoration: "none",
@@ -8,29 +11,23 @@ export default function Header({ route }) {
   };
 
   return (
-    <header
-      className="site-header"
-      style={{
-        background: "#ffffff",
-        boxShadow: "0 2px 10px rgba(0,0,0,0.08)",
-        padding: "1rem 0",
-      }}
-    >
-      <div
-        className="container"
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <div>
-          <h2 style={{ margin: 0, fontSize: "1.1rem", color: "#1f2937" }}>
-            Senior Tech Support
-          </h2>
-        </div>
+    <header className="site-header">
+      <div className="container header-inner">
+        <a href="#/" className="brand-link">
+          <span className="brand-title">Senior Tech</span>
+          <span className="brand-subtitle">Reliable home IT support</span>
+        </a>
 
-        <nav style={{ display: 'flex', gap: '1rem' }}>
+        <button
+          type="button"
+          className="menu-toggle"
+          aria-label="Toggle navigation"
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+        >
+          ☰
+        </button>
+
+        <nav className={`header-nav ${isMenuOpen ? 'is-open' : ''}`} aria-label="Primary">
           <a href="#/" style={{ ...navLinkStyle, color: route === 'home' ? '#2563eb' : '#1f2937' }}>
             Home
           </a>

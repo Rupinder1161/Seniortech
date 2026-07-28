@@ -19,11 +19,11 @@ export default function About() {
     <section className="section about-section">
       <div className="container">
         <div className="about-card">
-          <h2>About Senior Tech Support</h2>
+          <h2>About Senior Tech</h2>
           <p>
-            Senior Tech Support Wellington helps seniors feel confident using
-            technology in their everyday lives. We offer calm, friendly support
-            tailored to each person’s pace and comfort level.
+            Senior Tech Wellington helps seniors feel confident using technology
+            in their everyday lives. We offer calm, friendly support tailored to
+            each person’s pace and comfort level.
           </p>
           <p>
             We are proudly local to the Wellington region and have been working
