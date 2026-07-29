@@ -30,9 +30,9 @@ export default function ContactUs() {
     <section className="section about-section">
       <div className="container">
         <div className="about-card">
-          <h2>Contact Us</h2>
+          <h2>Contact Senior Tech</h2>
           <p>
-            Leave your details and we will contact you at the best time for you.
+            Need help with a phone, tablet, computer, or everyday tech support? Leave your details and we will contact you at a convenient time.
           </p>
 
           {submitted ? (

@@ -21,19 +21,13 @@ export default function About() {
         <div className="about-card">
           <h2>About Senior Tech</h2>
           <p>
-            Senior Tech Wellington helps seniors feel confident using technology
-            in their everyday lives. We offer calm, friendly support tailored to
-            each person’s pace and comfort level.
+            Senior Tech offers calm, friendly support for seniors who want to feel confident with modern technology at home. We explain things clearly and at a comfortable pace.
           </p>
           <p>
-            We are proudly local to the Wellington region and have been working
-            in IT for over 10 years, helping people with practical, reliable
-            technology support that is easy to understand.
+            We are proudly local to Wellington and have been working in IT for over 10 years, helping people with practical support for phones, tablets, computers, and online safety.
           </p>
           <p>
-            Whether you need help setting up a new device, fixing a printer,
-            joining a video call, or learning how to stay safe online, we are
-            here to make it simple and stress-free.
+            Whether you need help setting up a new device, fixing a printer, joining a video call, transferring photos, or learning how to stay safe online, we are here to make it simple and stress-free.
           </p>
 
           <div className="services">

@@ -14,8 +14,10 @@ export default function Header({ route }) {
     <header className="site-header">
       <div className="container header-inner">
         <a href="#/" className="brand-link">
-          <span className="brand-title">Senior Tech</span>
-          <span className="brand-subtitle">Reliable home IT support</span>
+          <span className="brand-title" style={{ color: '#2563eb' }}>
+            Senior Tech
+          </span>
+          <span className="brand-subtitle">Helping families stay connected</span>
         </a>
 
         <button

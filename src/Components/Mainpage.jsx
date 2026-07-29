@@ -5,12 +5,14 @@ export default function SeniorTechSupport() {
   const [statusMessage, setStatusMessage] = useState('');
 
   const services = [
-    "Phone & Tablet Help",
-    "Computer Support",
-    "Wi‑Fi Setup",
-    "Printer Setup",
-    "Email Assistance",
-    "Online Safety & Scam Awareness",
+    'Phone Help for Seniors',
+    'Computer Help for Older Adults',
+    'Data Transfer for Phone',
+    'Tech Support for Everyday Use',
+    'Wi‑Fi Setup',
+    'Printer Setup',
+    'Email Assistance',
+    'Online Safety & Scam Awareness',
   ];
 
   const phoneNumber = '+64224576040';
@@ -34,10 +36,12 @@ export default function SeniorTechSupport() {
     <div className="app">
       <header className="hero">
         <div className="container">
-          <h1>Senior Tech Wellington</h1>
+          <h1>Simple Tech Support for Seniors</h1>
           <p>
-            Friendly and patient technology support for seniors throughout
-            Wellington.
+            Friendly, practical help with phones, tablets, computers, Wi‑Fi, printers, and data transfer for phone.
+          </p>
+          <p>
+            Senior Tech helps families stay connected with children and loved ones through video calls and phone calls, while keeping personal data secure and easy to manage.
           </p>
 
           <div className="buttons">
@@ -55,20 +59,12 @@ export default function SeniorTechSupport() {
 
       <section className="section">
         <div className="container">
-          <h2>About Us</h2>
+          <h2>Reliable support for everyday technology</h2>
           <p>
-            Senior Tech is a friendly, patient service for older adults across
-            Wellington who want help using technology without feeling rushed or
-            confused.
+            Senior Tech provides calm, practical support for phones, tablets, computers, and online safety. We help with setup, troubleshooting, data transfer for phone, and practical guidance that feels easy to follow.
           </p>
           <p>
-            We visit homes, set up devices, explain things clearly, and help with
-            everyday tasks such as phone calls, video chats, email, online safety,
-            Wi‑Fi, printers, and scam awareness.
-          </p>
-          <p>
-            Whether it is a first-time setup or ongoing support, the goal is to make
-            technology feel simple, safe, and stress-free at home.
+            We visit homes, explain things clearly, and help with everyday tasks such as video calls, email, Wi‑Fi, printers, scam awareness, and keeping personal information secure.
           </p>
         </div>
       </section>
@@ -89,14 +85,14 @@ export default function SeniorTechSupport() {
 
       <section className="pricing">
         <div className="container">
-          <h2>Pricing</h2>
+          <h2>How We Help</h2>
 
           <div className="price-card">
             <ul>
-              <li>✅ Home Visit – $80/hour</li>
-              <li>✅ Device Setup – $120</li>
-              <li>✅ Wi‑Fi & Printer Setup – $100</li>
-              <li>✅ Monthly Support Plan – $40/month</li>
+              <li>✅ Friendly home visits with step-by-step guidance</li>
+              <li>✅ Help setting up phones, tablets, and computers</li>
+              <li>✅ Support with Wi‑Fi, printers, email, and video calls</li>
+              <li>✅ Practical advice for staying safe online</li>
             </ul>
           </div>
         </div>
@@ -110,17 +106,11 @@ export default function SeniorTechSupport() {
           <p>📞 022 457 6040</p>
           <p>✉ seniortechwellington@gmail.com</p>
 
-          <button className="btn secondary">
-            Request a Callback
-          </button>
+          <button className="btn secondary">Request a Callback</button>
         </div>
       </section>
 
-      <footer className="footer">
-        © 2026 Senior Tech Wellington
-      </footer>
+      <footer className="footer">© 2026 Senior Tech</footer>
     </div>
-
-
   );
 }
