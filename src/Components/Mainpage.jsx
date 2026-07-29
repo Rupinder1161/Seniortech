@@ -36,7 +36,7 @@ export default function SeniorTechSupport() {
     <div className="app">
       <header className="hero">
         <div className="container">
-          <h1>Simple Tech Support for Seniors</h1>
+          <h1>Simple IT Support for Seniors at Home</h1>
           <p>
             Friendly, practical help with phones, tablets, computers, Wi‑Fi, printers, and data transfer for phone.
           </p>
