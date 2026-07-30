@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../Components/Main.css';
+import Reviews from './Reviews';
 
 export default function SeniorTechSupport() {
   const [statusMessage, setStatusMessage] = useState('');
@@ -36,9 +37,12 @@ export default function SeniorTechSupport() {
     <div className="app">
       <header className="hero">
         <div className="container">
-          <h1>Simple IT Support for Seniors at Home</h1>
+          <h1>Simple Tech Support for Seniors</h1>
           <p>
-            Friendly, practical help with phones, tablets, computers, Wi‑Fi, printers, and data transfer for phone.
+            Friendly technology help that keeps you connected.
+          </p>
+          <p>
+            Technology should make life easier — not stressful. At Senior Tech, we provide friendly, practical support for older adults who want to feel confident using their phones, tablets, computers, and online services.
           </p>
           <p>
             Senior Tech helps families stay connected with children and loved ones through video calls and phone calls, while keeping personal data secure and easy to manage.
@@ -59,12 +63,45 @@ export default function SeniorTechSupport() {
 
       <section className="section">
         <div className="container">
+          <h2>Helping families stay connected ❤️</h2>
+          <p>
+            Technology is more than devices — it is about people. We help seniors stay connected with their children, grandchildren, friends, and community through video calls, phone support, messaging apps, email, and photo transfers.
+          </p>
+          <p>
+            Whether it is a quick call to check in, a video chat with grandchildren, or sending a treasured photo, we make everyday communication feel easier and more comfortable.
+          </p>
+          <p>
+            Because staying connected with the people you love should always be simple.
+          </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
           <h2>Reliable support for everyday technology</h2>
           <p>
-            Senior Tech provides calm, practical support for phones, tablets, computers, and online safety. We help with setup, troubleshooting, data transfer for phone, and practical guidance that feels easy to follow.
+            Senior Tech provides calm, practical support for smartphones and tablets, computers and laptops, Wi‑Fi setup and connection issues, printer setup and troubleshooting, email support, data transfer when changing phones, online safety, and cloud backup guidance.
           </p>
           <p>
             We visit homes, explain things clearly, and help with everyday tasks such as video calls, email, Wi‑Fi, printers, scam awareness, and keeping personal information secure.
+          </p>
+          <p>
+            If a device is slow, a connection is missing, or a new phone feels confusing, we can help turn that frustration into something manageable and clear.
+          </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <h2>Our approach</h2>
+          <p>
+            We believe technology support should be patient, friendly, personal, and safe. We take the time to understand your needs, explain things clearly, and help protect your privacy and personal information.
+          </p>
+          <p>
+            We never rush, and we never use confusing jargon. Our goal is to make each visit calm, useful, and reassuring so you leave with more confidence than when you started.
+          </p>
+          <p>
+            We don’t just fix technology problems — we help you feel confident using technology.
           </p>
         </div>
       </section>
@@ -98,13 +135,15 @@ export default function SeniorTechSupport() {
         </div>
       </section>
 
+      <Reviews />
+
       <section className="contact">
         <div className="container">
-          <h2>Contact</h2>
+          <h2>Book a friendly home visit today</h2>
 
-          <p>Jayden</p>
-          <p>📞 022 457 6040</p>
-          <p>✉ seniortechwellington@gmail.com</p>
+          <p>📞 Call: 022 457 6040</p>
+          <p>✉ Email: seniortechwellington@gmail.com</p>
+          <p>Senior Tech — making technology simple, safe, and stress-free for seniors.</p>
 
           <button className="btn secondary">Request a Callback</button>
         </div>
