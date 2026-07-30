@@ -12,7 +12,7 @@ function App() {
         ? 'contact'
         : 'home'
   );
-
+   
   useEffect(() => {
     const handleHashChange = () => {
       setRoute(
@@ -28,6 +28,19 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  useEffect(() => {
+  if (!window.gtag) return;
+
+  const pageLocation = window.location.href;
+  const pageTitle = document.title;
+
+  window.gtag("event", "page_view", {
+    page_title: pageTitle,
+    page_location: pageLocation,
+    // optional: custom route label
+    route: route,
+  });
+}, [route]);
   useEffect(() => {
     const titles = {
       home: 'Senior Tech Wellington | Tech Help for Elderly, Phone & Computer Support',
