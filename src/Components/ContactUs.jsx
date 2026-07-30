@@ -14,17 +14,23 @@ export default function ContactUs() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+
+  //   const subject = encodeURIComponent('New contact request from website');
+  //   const body = encodeURIComponent(
+  //     `Name: ${formData.name}\nPhone: ${formData.phone}\nBest time to call: ${formData.bestTime}`
+  //   );
+
+  //   window.location.href = `mailto:seniortechwellington@gmail.com?subject=${subject}&body=${body}`;
+  //   setSubmitted(true);
+  // };
+
   const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const subject = encodeURIComponent('New contact request from website');
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nPhone: ${formData.phone}\nBest time to call: ${formData.bestTime}`
-    );
-
-    window.open(`mailto:seniortechwellington@gmail.com?subject=${subject}&body=${body}`, '_self');
-    setSubmitted(true);
-  };
+  // Let Netlify handle the POST
+  // (Do not preventDefault)
+  setSubmitted(true);
+};
 
   return (
     <section className="section about-section">
@@ -41,7 +47,13 @@ export default function ContactUs() {
               <p>We will be in touch soon.</p>
             </div>
           ) : (
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  className="contact-form"
+  onSubmit={handleSubmit}
+>
               <label htmlFor="name">Name</label>
               <input
                 id="name"
@@ -61,7 +73,8 @@ export default function ContactUs() {
                 onChange={handleChange}
                 required
               />
-
+                   <input type="hidden" name="form-name" value="contact" />
+<input type="text" name="bot-field" style={{ display: 'none' }} />
               <label htmlFor="bestTime">Best Time to Call</label>
               <input
                 id="bestTime"
