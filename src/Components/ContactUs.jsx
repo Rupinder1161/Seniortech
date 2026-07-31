@@ -7,51 +7,42 @@ export default function ContactUs() {
     phone: '',
     bestTime: '',
   });
+
   const [submitted, setSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-//   const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setErrorMsg('');
 
-//     event.preventDefault();
+    try {
+      const res = await fetch("/.netlify/functions/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          bestTime: formData.bestTime,
+        }),
+      });
 
-//     const subject = encodeURIComponent('New contact request from website');
-//     const body = encodeURIComponent(
-//       `Name: ${formData.name}\nPhone: ${formData.phone}\nBest time to call: ${formData.bestTime}`
-//     );
+      if (!res.ok) {
+        const txt = await res.text().catch(() => '');
+        throw new Error(txt || "Request failed");
+      }
 
-//     window.open(`mailto:seniortechwellington@gmail.com?subject=${subject}&body=${body}`, '_self');
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      setErrorMsg("Sorry—could not submit. Please try again.");
+    }
+  };
 
-//  //  event.preventDefault();
-//     console.log("Submitting form...");
-//   setTimeout(() => setSubmitted(true), 500);
-// };
-
-const handleSubmit = async (event) => {
-  event.preventDefault();
-
-  try {
-    const res = await fetch("/.netlify/functions/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: formData.name,
-        phone: formData.phone,
-        bestTime: formData.bestTime,
-      }),
-    });
-
-    if (!res.ok) throw new Error("Request failed");
-
-    setSubmitted(true);
-  } catch (err) {
-    alert("Sorry—could not submit. Please try again.");
-    console.error(err);
-  }
-};
   return (
     <section className="section about-section">
       <div className="container">
@@ -67,42 +58,46 @@ const handleSubmit = async (event) => {
               <p>We will be in touch soon.</p>
             </div>
           ) : (
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <label htmlFor="name">Name</label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
+            <>
+              {errorMsg && <p style={{ color: 'red' }}>{errorMsg}</p>}
 
-              <label htmlFor="phone">Phone Number</label>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-              />
+              <form className="contact-form" onSubmit={handleSubmit}>
+                <label htmlFor="name">Name</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
 
-              <label htmlFor="bestTime">Best Time to Call</label>
-              <input
-                id="bestTime"
-                name="bestTime"
-                type="text"
-                value={formData.bestTime}
-                onChange={handleChange}
-                placeholder="Morning / Afternoon / Evening"
-                required
-              />
+                <label htmlFor="phone">Phone Number</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
 
-              <button type="submit" className="btn secondary">
-                Request a Call
-              </button>
-            </form>
+                <label htmlFor="bestTime">Best Time to Call</label>
+                <input
+                  id="bestTime"
+                  name="bestTime"
+                  type="text"
+                  value={formData.bestTime}
+                  onChange={handleChange}
+                  placeholder="Morning / Afternoon / Evening"
+                  required
+                />
+
+                <button type="submit" className="btn secondary">
+                  Request a Call
+                </button>
+              </form>
+            </>
           )}
         </div>
       </div>
