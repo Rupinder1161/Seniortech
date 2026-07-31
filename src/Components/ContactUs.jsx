@@ -27,9 +27,9 @@ export default function ContactUs() {
   // };
 
   const handleSubmit = (event) => {
-  // Let Netlify handle the POST
-  // (Do not preventDefault)
-  setSubmitted(true);
+ //  event.preventDefault();
+    console.log("Submitting form...");
+  setTimeout(() => setSubmitted(true), 500);
 };
 
   return (
@@ -47,7 +47,7 @@ export default function ContactUs() {
               <p>We will be in touch soon.</p>
             </div>
           ) : (
-            <form
+          <form
   name="contact"
   method="POST"
   data-netlify="true"
