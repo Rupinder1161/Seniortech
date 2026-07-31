@@ -14,22 +14,44 @@ export default function ContactUs() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+//   const handleSubmit = (event) => {
 
-    event.preventDefault();
+//     event.preventDefault();
 
-    const subject = encodeURIComponent('New contact request from website');
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nPhone: ${formData.phone}\nBest time to call: ${formData.bestTime}`
-    );
+//     const subject = encodeURIComponent('New contact request from website');
+//     const body = encodeURIComponent(
+//       `Name: ${formData.name}\nPhone: ${formData.phone}\nBest time to call: ${formData.bestTime}`
+//     );
 
-    window.open(`mailto:seniortechwellington@gmail.com?subject=${subject}&body=${body}`, '_self');
+//     window.open(`mailto:seniortechwellington@gmail.com?subject=${subject}&body=${body}`, '_self');
 
- //  event.preventDefault();
-    console.log("Submitting form...");
-  setTimeout(() => setSubmitted(true), 500);
+//  //  event.preventDefault();
+//     console.log("Submitting form...");
+//   setTimeout(() => setSubmitted(true), 500);
+// };
+
+const handleSubmit = async (event) => {
+  event.preventDefault();
+
+  try {
+    const res = await fetch("/.netlify/functions/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: formData.name,
+        phone: formData.phone,
+        bestTime: formData.bestTime,
+      }),
+    });
+
+    if (!res.ok) throw new Error("Request failed");
+
+    setSubmitted(true);
+  } catch (err) {
+    alert("Sorry—could not submit. Please try again.");
+    console.error(err);
+  }
 };
-
   return (
     <section className="section about-section">
       <div className="container">
