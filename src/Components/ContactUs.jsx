@@ -15,6 +15,7 @@ export default function ContactUs() {
   };
 
   const handleSubmit = (event) => {
+<<<<<<< HEAD
     event.preventDefault();
 
     const subject = encodeURIComponent('New contact request from website');
@@ -25,6 +26,12 @@ export default function ContactUs() {
     window.open(`mailto:seniortechwellington@gmail.com?subject=${subject}&body=${body}`, '_self');
     setSubmitted(true);
   };
+=======
+ //  event.preventDefault();
+    console.log("Submitting form...");
+  setTimeout(() => setSubmitted(true), 500);
+};
+>>>>>>> 75a8a03d95b4ef97c8d29fb9302beb821253c04c
 
   return (
     <section className="section about-section">
@@ -41,7 +48,17 @@ export default function ContactUs() {
               <p>We will be in touch soon.</p>
             </div>
           ) : (
+<<<<<<< HEAD
             <form className="contact-form" onSubmit={handleSubmit}>
+=======
+          <form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  className="contact-form"
+  onSubmit={handleSubmit}
+>
+>>>>>>> 75a8a03d95b4ef97c8d29fb9302beb821253c04c
               <label htmlFor="name">Name</label>
               <input
                 id="name"
