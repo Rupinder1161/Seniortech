@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <title>Contact Senior Tech</title>
     <style>
       * {
@@ -114,6 +115,15 @@
         color: #475569;
         line-height: 1.8;
       }
+      .success-message {
+        margin-top: 1rem;
+        padding: 1rem 1.25rem;
+        border-radius: 12px;
+        background: #f0fdf4;
+        border: 1px solid #86efac;
+        color: #166534;
+        font-weight: 600;
+      }
       form {
         display: flex;
         flex-direction: column;
@@ -160,7 +170,7 @@
       <h1>Contact Senior Tech</h1>
       <p>Leave your details and we will be in touch.</p>
 
-      <form name="contact" method="POST" action="/" data-netlify="true" data-netlify-honeypot="bot-field">
+      <form id="contact-form" name="contact" method="POST" action="/" data-netlify="true" data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="bot-field" />
 
@@ -174,7 +184,21 @@
         <input id="bestTime" name="bestTime" type="text" placeholder="Morning / Afternoon / Evening" required />
 
         <button type="submit">Request a Call</button>
+        <div id="form-success" class="success-message" style="display: none;">
+          Thanks! We’ve got your request and will reach out soon.
+        </div>
       </form>
     </div>
+
+    <script>
+      const form = document.getElementById('contact-form');
+      const successMessage = document.getElementById('form-success');
+
+      if (form && successMessage) {
+        form.addEventListener('submit', () => {
+          successMessage.style.display = 'block';
+        });
+      }
+    </script>
   </body>
 </html>
