@@ -170,7 +170,7 @@
       <h1>Contact Senior Tech</h1>
       <p>Leave your details and we will be in touch.</p>
 
-      <form id="contact-form" name="contact" method="POST" action="/" data-netlify="true" data-netlify-honeypot="bot-field">
+      <form id="contact-form" name="contact" method="POST" action="/contact.html?submitted=true" data-netlify="true" data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="bot-field" />
 
@@ -193,12 +193,15 @@
     <script>
       const form = document.getElementById('contact-form');
       const successMessage = document.getElementById('form-success');
+      const params = new URLSearchParams(window.location.search);
+
+      if (params.get('submitted') === 'true') {
+        successMessage.style.display = 'block';
+      }
 
       if (form && successMessage) {
-        form.addEventListener('submit', (event) => {
-          event.preventDefault();
+        form.addEventListener('submit', () => {
           successMessage.style.display = 'block';
-          form.reset();
         });
       }
     </script>
