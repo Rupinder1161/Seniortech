@@ -46,26 +46,19 @@ test('toggles the mobile navigation menu', () => {
   expect(nav.className).toContain('is-open');
 });
 
-test('renders the contact form fields', () => {
+test('renders a link to the static contact form page', () => {
   render(<ContactUs />);
 
-  expect(screen.getByLabelText(/name/i)).toBeTruthy();
-  expect(screen.getByLabelText(/phone number/i)).toBeTruthy();
-  expect(screen.getByLabelText(/best time to call/i)).toBeTruthy();
-  expect(screen.getByRole('button', { name: /request a call/i })).toBeTruthy();
+  expect(screen.getByRole('link', { name: /open contact form/i })).toBeTruthy();
 });
 
-test('renders a Netlify contact form that posts submissions', () => {
+test('renders a link to the static contact form page', () => {
   render(<ContactUs />);
 
-  const form = document.querySelector('form.contact-form');
+  const link = screen.getByRole('link', { name: /open contact form/i });
 
-  expect(form).toBeTruthy();
-  expect(form.getAttribute('method')).toBe('POST');
-  expect(form.getAttribute('action')).toBe('/');
-  expect(form.getAttribute('data-netlify')).toBe('true');
-  expect(form.getAttribute('name')).toBe('contact');
-  expect(form.querySelector('input[name="form-name"]').getAttribute('value')).toBe('contact');
+  expect(link).toBeTruthy();
+  expect(link.getAttribute('href')).toBe('/contact.html');
 });
 
 test('handles a contact form POST successfully', async () => {
