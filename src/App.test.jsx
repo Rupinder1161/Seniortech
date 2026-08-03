@@ -45,8 +45,19 @@ test('toggles the mobile navigation menu', () => {
   expect(nav.className).toContain('is-open');
 });
 
-test('submits the contact form and opens a mailto link', () => {
-  const openSpy = vi.spyOn(window, 'open').mockImplementation(() => null);
+test('shows a success message after the contact form is submitted', async () => {
+  render(<ContactUs />);
+
+  fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Jane' } });
+  fireEvent.change(screen.getByLabelText(/phone number/i), { target: { value: '0211111111' } });
+  fireEvent.change(screen.getByLabelText(/best time to call/i), { target: { value: 'Afternoon' } });
+  fireEvent.click(screen.getByRole('button', { name: /request a call/i }));
+
+  expect(await screen.findByText(/thanks jane/i)).toBeTruthy();
+});
+
+test('shows a fallback email guidance when the request fails', async () => {
+  vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('failed')));
 
   render(<ContactUs />);
 
@@ -55,8 +66,5 @@ test('submits the contact form and opens a mailto link', () => {
   fireEvent.change(screen.getByLabelText(/best time to call/i), { target: { value: 'Afternoon' } });
   fireEvent.click(screen.getByRole('button', { name: /request a call/i }));
 
-  expect(openSpy).toHaveBeenCalledWith(
-    expect.stringContaining('mailto:seniortechwellington@gmail.com'),
-    '_self'
-  );
+  expect(await screen.findByRole('link', { name: /email us directly/i })).toBeTruthy();
 });

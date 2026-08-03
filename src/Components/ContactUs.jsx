@@ -16,14 +16,34 @@ export default function ContactUs() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const buildMailtoLink = () => {
+    const subject = encodeURIComponent('Senior Tech contact request');
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nPhone: ${formData.phone}\nBest time to call: ${formData.bestTime}`
+    );
+
+    return `mailto:seniortechwellington@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorMsg('');
 
+    if (!import.meta.env.PROD) {
+      setSubmitted(true);
+      setErrorMsg('We could not send this automatically. Please email us directly at seniortechwellington@gmail.com and we will get back to you soon.');
+      return;
+    }
+
+    const contactEndpoint =
+      typeof window !== 'undefined' && window.location.origin
+        ? `${window.location.origin}/.netlify/functions/contact`
+        : '/.netlify/functions/contact';
+
     try {
-      const res = await fetch("/.netlify/functions/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch(contactEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formData.name,
           phone: formData.phone,
@@ -33,13 +53,14 @@ export default function ContactUs() {
 
       if (!res.ok) {
         const txt = await res.text().catch(() => '');
-        throw new Error(txt || "Request failed");
+        throw new Error(txt || 'Request failed');
       }
 
       setSubmitted(true);
     } catch (err) {
       console.error(err);
-      setErrorMsg("Sorry—could not submit. Please try again.");
+      setSubmitted(true);
+      setErrorMsg('We could not send this automatically. Please email us directly at seniortechwellington@gmail.com and we will get back to you soon.');
     }
   };
 
@@ -55,7 +76,12 @@ export default function ContactUs() {
           {submitted ? (
             <div className="contact-success">
               <h3>Thanks {formData.name || 'there'}!</h3>
-              <p>We will be in touch soon.</p>
+              <p>{errorMsg || 'We will be in touch soon.'}</p>
+              {errorMsg && (
+                <p>
+                  <a href={buildMailtoLink()}>Email us directly</a>
+                </p>
+              )}
             </div>
           ) : (
             <>
