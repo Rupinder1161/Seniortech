@@ -1,69 +1,6 @@
-import { useState } from 'react';
 import '../Components/Main.css';
 
 export default function ContactUs() {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    bestTime: '',
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-  const [errorMsg, setErrorMsg] = useState('');
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const buildMailtoLink = () => {
-    const subject = encodeURIComponent('Senior Tech contact request');
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nPhone: ${formData.phone}\nBest time to call: ${formData.bestTime}`
-    );
-
-    return `mailto:seniortechwellington@gmail.com?subject=${subject}&body=${body}`;
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setErrorMsg('');
-
-    if (!import.meta.env.PROD) {
-      setSubmitted(true);
-      setErrorMsg('We could not send this automatically. Please email us directly at seniortechwellington@gmail.com and we will get back to you soon.');
-      return;
-    }
-
-    const contactEndpoint =
-      typeof window !== 'undefined' && window.location.origin
-        ? `${window.location.origin}/.netlify/functions/contact`
-        : '/.netlify/functions/contact';
-
-    try {
-      const res = await fetch(contactEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          bestTime: formData.bestTime,
-        }),
-      });
-
-      if (!res.ok) {
-        const txt = await res.text().catch(() => '');
-        throw new Error(txt || 'Request failed');
-      }
-
-      setSubmitted(true);
-    } catch (err) {
-      console.error(err);
-      setSubmitted(true);
-      setErrorMsg('We could not send this automatically. Please email us directly at seniortechwellington@gmail.com and we will get back to you soon.');
-    }
-  };
-
   return (
     <section className="section about-section">
       <div className="container">
@@ -73,59 +10,34 @@ export default function ContactUs() {
             Need help with a phone, tablet, computer, or everyday tech support? Leave your details and we will contact you at a convenient time.
           </p>
 
-          {submitted ? (
-            <div className="contact-success">
-              <h3>Thanks {formData.name || 'there'}!</h3>
-              <p>{errorMsg || 'We will be in touch soon.'}</p>
-              {errorMsg && (
-                <p>
-                  <a href={buildMailtoLink()}>Email us directly</a>
-                </p>
-              )}
-            </div>
-          ) : (
-            <>
-              {errorMsg && <p style={{ color: 'red' }}>{errorMsg}</p>}
+          <form
+            className="contact-form"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="contact" />
 
-              <form className="contact-form" onSubmit={handleSubmit} name ="contact"
-                     method="POST" data-netlify="true">
-                <label htmlFor="name">Name</label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
+            <label htmlFor="name">Name</label>
+            <input id="name" name="name" type="text" required />
 
-                <label htmlFor="phone">Phone Number</label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                />
+            <label htmlFor="phone">Phone Number</label>
+            <input id="phone" name="phone" type="tel" required />
 
-                <label htmlFor="bestTime">Best Time to Call</label>
-                <input
-                  id="bestTime"
-                  name="bestTime"
-                  type="text"
-                  value={formData.bestTime}
-                  onChange={handleChange}
-                  placeholder="Morning / Afternoon / Evening"
-                  required
-                />
+            <label htmlFor="bestTime">Best Time to Call</label>
+            <input
+              id="bestTime"
+              name="bestTime"
+              type="text"
+              placeholder="Morning / Afternoon / Evening"
+              required
+            />
 
-                <button type="submit" className="btn secondary">
-                  Request a Call
-                </button>
-              </form>
-            </>
-          )}
+            <button type="submit" className="btn secondary">
+              Request a Call
+            </button>
+          </form>
         </div>
       </div>
     </section>
