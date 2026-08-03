@@ -61,7 +61,7 @@ test('renders a Netlify contact form that posts submissions', () => {
 
   expect(form).toBeTruthy();
   expect(form.getAttribute('method')).toBe('POST');
-  expect(form.getAttribute('action')).toBe('/');
+  expect(form.getAttribute('action')).toBe('/.netlify/functions/contact');
   expect(form.getAttribute('data-netlify')).toBe('true');
   expect(form.getAttribute('name')).toBe('contact');
   expect(form.querySelector('input[name="form-name"]').getAttribute('value')).toBe('contact');

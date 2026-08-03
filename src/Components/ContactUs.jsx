@@ -4,6 +4,32 @@ import '../Components/Main.css';
 export default function ContactUs() {
   const [submitted, setSubmitted] = useState(false);
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const params = new URLSearchParams();
+
+    formData.forEach((value, key) => {
+      params.append(key, value.toString());
+    });
+
+    try {
+      await fetch('/.netlify/functions/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: params.toString(),
+      });
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Contact form submission failed', error);
+      setSubmitted(true);
+    }
+  };
+
   return (
     <section className="section about-section">
       <div className="container">
@@ -17,10 +43,10 @@ export default function ContactUs() {
             className="contact-form"
             name="contact"
             method="POST"
-            action="/"
+            action="/.netlify/functions/contact"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            onSubmit={() => setSubmitted(true)}
+            onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact" />
             <input type="hidden" name="bot-field" />
