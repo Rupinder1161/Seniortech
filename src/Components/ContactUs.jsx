@@ -87,7 +87,8 @@ export default function ContactUs() {
             <>
               {errorMsg && <p style={{ color: 'red' }}>{errorMsg}</p>}
 
-              <form className="contact-form" onSubmit={handleSubmit}>
+              <form className="contact-form" onSubmit={handleSubmit} name ="contact"
+                     method="POST" data-netlify="true">
                 <label htmlFor="name">Name</label>
                 <input
                   id="name"
