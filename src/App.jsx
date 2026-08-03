@@ -5,27 +5,23 @@ import About from '../src/Components/About';
 import ContactUs from '../src/Components/ContactUs';
 
 function App() {
-  const [route, setRoute] = useState(
-    window.location.hash === '#/about'
-      ? 'about'
-      : window.location.hash === '#/contact'
-        ? 'contact'
-        : 'home'
-  );
-   
+  const getRouteFromPath = () => {
+    const path = window.location.pathname;
+
+    if (path === '/about') return 'about';
+    if (path === '/contact') return 'contact';
+    return 'home';
+  };
+
+  const [route, setRoute] = useState(getRouteFromPath);
+
   useEffect(() => {
-    const handleHashChange = () => {
-      setRoute(
-        window.location.hash === '#/about'
-          ? 'about'
-          : window.location.hash === '#/contact'
-            ? 'contact'
-            : 'home'
-      );
+    const handleLocationChange = () => {
+      setRoute(getRouteFromPath());
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
   }, []);
 
   useEffect(() => {

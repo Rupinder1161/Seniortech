@@ -13,7 +13,7 @@ export default function Header({ route }) {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <a href="#/" className="brand-link">
+        <a href="/" className="brand-link">
           <span className="brand-title" style={{ color: '#2563eb' }}>
             Senior Tech
           </span>
@@ -30,13 +30,13 @@ export default function Header({ route }) {
         </button>
 
         <nav className={`header-nav ${isMenuOpen ? 'is-open' : ''}`} aria-label="Primary">
-          <a href="#/" style={{ ...navLinkStyle, color: route === 'home' ? '#2563eb' : '#1f2937' }}>
+          <a href="/" style={{ ...navLinkStyle, color: route === 'home' ? '#2563eb' : '#1f2937' }}>
             Home
           </a>
-          <a href="#/about" style={{ ...navLinkStyle, color: route === 'about' ? '#2563eb' : '#1f2937' }}>
+          <a href="/about" style={{ ...navLinkStyle, color: route === 'about' ? '#2563eb' : '#1f2937' }}>
             About
           </a>
-          <a href="#/contact" style={{ ...navLinkStyle, color: route === 'contact' ? '#2563eb' : '#1f2937' }}>
+          <a href="/contact" style={{ ...navLinkStyle, color: route === 'contact' ? '#2563eb' : '#1f2937' }}>
             Contact
           </a>
         </nav>
