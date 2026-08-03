@@ -46,19 +46,13 @@ test('toggles the mobile navigation menu', () => {
   expect(nav.className).toContain('is-open');
 });
 
-test('renders a link to the static contact form page', () => {
+test('renders the contact form fields', () => {
   render(<ContactUs />);
 
-  expect(screen.getByRole('link', { name: /open contact form/i })).toBeTruthy();
-});
-
-test('renders a link to the static contact form page', () => {
-  render(<ContactUs />);
-
-  const link = screen.getByRole('link', { name: /open contact form/i });
-
-  expect(link).toBeTruthy();
-  expect(link.getAttribute('href')).toBe('/contact.html');
+  expect(screen.getByLabelText(/name/i)).toBeTruthy();
+  expect(screen.getByLabelText(/phone number/i)).toBeTruthy();
+  expect(screen.getByLabelText(/best time to call/i)).toBeTruthy();
+  expect(screen.getByRole('button', { name: /request a call/i })).toBeTruthy();
 });
 
 test('handles a contact form POST successfully', async () => {
