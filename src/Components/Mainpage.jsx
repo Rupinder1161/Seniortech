@@ -145,7 +145,9 @@ export default function SeniorTechSupport() {
           <p>✉ Email: seniortechwellington@gmail.com</p>
           <p>Senior Tech — making technology simple, safe, and stress-free for seniors.</p>
 
-          <button className="btn secondary">Request a Callback</button>
+          <a href="/contact" className="btn secondary" style={{ display: 'inline-block', textDecoration: 'none' }}>
+            Request a Callback
+          </a>
         </div>
       </section>
 
