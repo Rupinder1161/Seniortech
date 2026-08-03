@@ -54,17 +54,14 @@ test('renders the contact form fields', () => {
   expect(screen.getByRole('button', { name: /request a call/i })).toBeTruthy();
 });
 
-test('submits the contact form by opening a mailto link', () => {
-  const locationSpy = vi.spyOn(window.location, 'assign').mockImplementation(() => {});
-
+test('renders a Netlify contact form that posts submissions', () => {
   render(<ContactUs />);
 
-  fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Jane' } });
-  fireEvent.change(screen.getByLabelText(/phone number/i), { target: { value: '0211111111' } });
-  fireEvent.change(screen.getByLabelText(/best time to call/i), { target: { value: 'Afternoon' } });
-  fireEvent.click(screen.getByRole('button', { name: /request a call/i }));
+  const form = document.querySelector('form.contact-form');
 
-  expect(locationSpy).toHaveBeenCalledWith(
-    expect.stringContaining('mailto:seniortechwellington@gmail.com')
-  );
+  expect(form).toBeTruthy();
+  expect(form.getAttribute('method')).toBe('POST');
+  expect(form.getAttribute('data-netlify')).toBe('true');
+  expect(form.getAttribute('name')).toBe('contact');
+  expect(form.querySelector('input[name="form-name"]').getAttribute('value')).toBe('contact');
 });

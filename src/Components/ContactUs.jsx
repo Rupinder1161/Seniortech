@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import '../Components/Main.css';
 
 export default function ContactUs() {
+  const [submitted, setSubmitted] = useState(false);
+
   return (
     <section className="section about-section">
       <div className="container">
@@ -13,10 +16,13 @@ export default function ContactUs() {
           <form
             className="contact-form"
             name="contact"
+            method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
+            onSubmit={() => setSubmitted(true)}
           >
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="bot-field" />
 
             <label htmlFor="name">Name</label>
             <input id="name" name="name" type="text" required />
@@ -36,6 +42,12 @@ export default function ContactUs() {
             <button type="submit" className="btn secondary">
               Request a Call
             </button>
+
+            {submitted && (
+              <p className="contact-success">
+                Thanks! Your request has been received and we will be in touch soon.
+              </p>
+            )}
           </form>
         </div>
       </div>
