@@ -3,6 +3,7 @@ import { afterEach, expect, test, vi } from 'vitest';
 import SeniorTechSupport from './Components/Mainpage';
 import Header from './Components/Header';
 import ContactUs from './Components/ContactUs';
+import { handler } from '../netlify/functions/contact';
 
 afterEach(() => {
   vi.restoreAllMocks();
@@ -65,4 +66,14 @@ test('renders a Netlify contact form that posts submissions', () => {
   expect(form.getAttribute('data-netlify')).toBe('true');
   expect(form.getAttribute('name')).toBe('contact');
   expect(form.querySelector('input[name="form-name"]').getAttribute('value')).toBe('contact');
+});
+
+test('handles a contact form POST successfully', async () => {
+  const response = await handler({
+    httpMethod: 'POST',
+    body: 'name=Jane&phone=0211111111&bestTime=Afternoon',
+  });
+
+  expect(response.statusCode).toBe(200);
+  expect(JSON.parse(response.body).ok).toBe(true);
 });
