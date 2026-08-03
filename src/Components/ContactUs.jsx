@@ -4,31 +4,23 @@ import '../Components/Main.css';
 export default function ContactUs() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(event.currentTarget);
-    const params = new URLSearchParams();
-
-    formData.forEach((value, key) => {
-      params.append(key, value.toString());
-    });
-
-    try {
-      await fetch('/.netlify/functions/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: params.toString(),
-      });
-
-      setSubmitted(true);
-    } catch (error) {
-      console.error('Contact form submission failed', error);
-      setSubmitted(true);
-    }
-  };
+  if (submitted) {
+    return (
+      <section className="section about-section">
+        <div className="container">
+          <div className="about-card">
+            <h2>Thanks for your request</h2>
+            <p>
+              We’ve received your contact request and will be in touch soon.
+            </p>
+            <a href="/" className="btn secondary">
+              Back to home
+            </a>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="section about-section">
@@ -43,10 +35,10 @@ export default function ContactUs() {
             className="contact-form"
             name="contact"
             method="POST"
-            action="/.netlify/functions/contact"
+            action="/"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            onSubmit={handleSubmit}
+            onSubmit={() => setSubmitted(true)}
           >
             <input type="hidden" name="form-name" value="contact" />
             <input type="hidden" name="bot-field" />
