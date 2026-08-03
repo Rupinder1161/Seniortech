@@ -13,7 +13,6 @@ export default function ContactUs() {
           <form
             className="contact-form"
             name="contact"
-            method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
           >

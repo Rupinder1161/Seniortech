@@ -53,3 +53,18 @@ test('renders the contact form fields', () => {
   expect(screen.getByLabelText(/best time to call/i)).toBeTruthy();
   expect(screen.getByRole('button', { name: /request a call/i })).toBeTruthy();
 });
+
+test('submits the contact form by opening a mailto link', () => {
+  const locationSpy = vi.spyOn(window.location, 'assign').mockImplementation(() => {});
+
+  render(<ContactUs />);
+
+  fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Jane' } });
+  fireEvent.change(screen.getByLabelText(/phone number/i), { target: { value: '0211111111' } });
+  fireEvent.change(screen.getByLabelText(/best time to call/i), { target: { value: 'Afternoon' } });
+  fireEvent.click(screen.getByRole('button', { name: /request a call/i }));
+
+  expect(locationSpy).toHaveBeenCalledWith(
+    expect.stringContaining('mailto:seniortechwellington@gmail.com')
+  );
+});
