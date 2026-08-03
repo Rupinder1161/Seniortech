@@ -17,7 +17,6 @@ export default function SeniorTechSupport() {
   ];
 
   const phoneNumber = '+64224576040';
-  const bookingEmail = 'seniortechwellington@gmail.com';
 
   const handleCallNow = () => {
     window.open(`tel:${phoneNumber}`, '_self');
@@ -25,12 +24,8 @@ export default function SeniorTechSupport() {
   };
 
   const handleBookVisit = () => {
-    const subject = encodeURIComponent('Book a Visit Request');
-    const body = encodeURIComponent(
-      'Hi Senior Tech,\n\nI would like to book a visit. Please let me know your availability.'
-    );
-    window.open(`mailto:${bookingEmail}?subject=${subject}&body=${body}`, '_self');
-    setStatusMessage('Opening your email to book a visit.');
+    setStatusMessage('Taking you to our contact page.');
+    window.location.assign('/contact');
   };
 
   return (
