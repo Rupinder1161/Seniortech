@@ -195,8 +195,10 @@
       const successMessage = document.getElementById('form-success');
 
       if (form && successMessage) {
-        form.addEventListener('submit', () => {
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
           successMessage.style.display = 'block';
+          form.reset();
         });
       }
     </script>
