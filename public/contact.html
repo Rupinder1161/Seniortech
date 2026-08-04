@@ -132,11 +132,15 @@
       label {
         font-weight: 600;
       }
-      input, button {
+      input, select, button {
         padding: 0.8rem 1rem;
         border-radius: 10px;
         border: 1px solid #cbd5e1;
         font-size: 1rem;
+      }
+      select {
+        background: white;
+        color: #334155;
       }
       button {
         background: #facc15;
@@ -181,7 +185,12 @@
         <input id="phone" name="phone" type="tel" required />
 
         <label for="bestTime">Best Time to Call</label>
-        <input id="bestTime" name="bestTime" type="text" placeholder="Morning / Afternoon / Evening" required />
+        <select id="bestTime" name="bestTime" required>
+          <option value="">Select a time</option>
+          <option value="Morning">Morning</option>
+          <option value="Afternoon">Afternoon</option>
+          <option value="Evening">Evening</option>
+        </select>
 
         <button type="submit">Request a Call</button>
         <div id="form-success" class="success-message" style="display: none;">
