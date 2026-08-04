@@ -63,14 +63,17 @@ export default function ContactUs() {
             <input id="phone" name="phone" type="tel" value={formState.phone} onChange={handleChange} />
 
             <label htmlFor="bestTime">Best Time to Call</label>
-            <input
+            <select
               id="bestTime"
               name="bestTime"
-              type="text"
-              placeholder="Morning / Afternoon / Evening"
               value={formState.bestTime}
               onChange={handleChange}
-            />
+            >
+              <option value="">Select a time</option>
+              <option value="Morning">Morning</option>
+              <option value="Afternoon">Afternoon</option>
+              <option value="Evening">Evening</option>
+            </select>
 
             <button type="submit" className="btn secondary">
               Request a Call
