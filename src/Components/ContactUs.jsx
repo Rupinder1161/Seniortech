@@ -19,7 +19,14 @@ export default function ContactUs() {
             data-netlify-honeypot="bot-field"
           >
             <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="bot-field" />
+            <input
+              type="text"
+              name="bot-field"
+              tabIndex="-1"
+              autoComplete="off"
+              style={{ display: 'none' }}
+              aria-hidden="true"
+            />
 
             <label htmlFor="name">Name</label>
             <input id="name" name="name" type="text" required />

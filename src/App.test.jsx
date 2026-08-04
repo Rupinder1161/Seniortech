@@ -57,6 +57,17 @@ test('renders the contact form fields', () => {
   expect(screen.getByRole('button', { name: /request a call/i })).toBeTruthy();
 });
 
+test('rejects suspicious submissions with a honeypot field', async () => {
+  const response = await handler({
+    httpMethod: 'POST',
+    body: 'name=Jane&phone=0211111111&bestTime=Afternoon&bot-field=spam',
+  });
+
+  expect(response.statusCode).toBe(400);
+  expect(JSON.parse(response.body).ok).toBe(false);
+  expect(JSON.parse(response.body).error).toContain('bot');
+});
+
 test('handles a contact form POST successfully', async () => {
   const response = await handler({
     httpMethod: 'POST',

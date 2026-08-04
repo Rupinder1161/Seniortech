@@ -2,24 +2,25 @@ import '../Components/Main.css';
 
 export default function Reviews() {
   const reviews = [
-    {
-      name: 'Megan W.',
-      location: 'Wellington, Tawa',
+   {
+      name: 'Sharyn P.',
+      location: 'Porirua',
       rating: '★★★★★',
-      text: 'Very patient and clear. We were helped step by step and felt much more comfortable using our phone and video calls.',
+      text: 'Fantastic experience with SeniorTech. I had a phone with a broken screen and needed my data transferred safely. They guided me step-by-step and came to my home to complete the work. Very helpful, trustworthy, and efficient—highly recommend!',
     },
     {
       name: 'David R.',
       location: 'Lower Hutt, Upper Hutt',
       rating: '★★★★★',
-      text: 'Helpful and reassuring. Senior Tech made a stressful tech problem feel simple and manageable in our own home.',
+      text: 'They helped us when our phone had a virus issue. Jayden came to our home, fixed it, and the phone is working well again. He was friendly, patient, and explained what he was doing. Highly recommend',
     },
     {
       name: 'Sarah M.',
       location: 'Porirua',
       rating: '★★★★★',
       text: 'Great support for setting up a new phone and helping our family stay connected through video calls.',
-    },
+    }
+    
   ];
 
   return (
