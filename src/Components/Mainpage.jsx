@@ -92,6 +92,15 @@ export default function SeniorTechSupport() {
           <p>
             We believe technology support should be patient, friendly, personal, and safe. We take the time to understand your needs, explain things clearly, and help protect your privacy and personal information.
           </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <h2>Our approach</h2>
+          <p>
+            We believe technology support should be patient, friendly, personal, and safe. We take the time to understand your needs, explain things clearly, and help protect your privacy and personal information.
+          </p>
           <p>
             We never rush, and we never use confusing jargon. Our goal is to make each visit calm, useful, and reassuring so you leave with more confidence than when you started.
           </p>
