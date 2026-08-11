@@ -89,10 +89,10 @@ export default function SeniorTechSupport() {
 
       <section className="section feature-section">
   <div className="container">
-    <h2>Technology Services we can Help With</h2>
-    {/* <p className="feature-lead">
+    <h2>Technology Services We Can Help With</h2>
+    <p className="feature-lead">
       SeniorTech provides calm, practical support for the devices and services people use every day.
-    </p> */}
+    </p>
 
     <div className="feature-grid">
       <div className="feature-card">
@@ -135,7 +135,7 @@ export default function SeniorTechSupport() {
         </div>
       </section> */}
 
-      <section className="pricing">
+      {/* <section className="pricing">
         <div className="container">
           <h2>How We Help</h2>
 
@@ -148,7 +148,7 @@ export default function SeniorTechSupport() {
             </ul>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Reviews />
 
