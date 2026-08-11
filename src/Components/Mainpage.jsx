@@ -32,11 +32,11 @@ export default function SeniorTechSupport() {
     <div className="app">
       <header className="hero">
         <div className="container hero-content">
-          <h1>Simple Tech Support for Seniors</h1>
+          <h1>Simple Tech Support for Seniors in Wellington</h1>
           <p className="hero-tagline">Friendly technology help that keeps you connected.</p>
 
           <p>
-            Technology should make life easier — not stressful. SeniorTech provides friendly, practical support for older adults who want to feel confident using their phones, tablets, computers, and online services.
+            Technology should make life easier not stressful. SeniorTech provides friendly, practical support for older adults who want to feel confident using their phones, tablets, computers, and online services.
           </p>
 
           <p>
