@@ -8,11 +8,11 @@ export default function SeniorTechSupport() {
   const services = [
     'Phone Help for Seniors',
     'Computer Help for Older Adults',
-    'Data Transfer for Phone',
-    'Tech Support for Everyday Use',
+    'Data Transfer',
     'Wi‑Fi Setup',
     'Printer Setup',
     'Email Assistance',
+    'Video Calls',
     'Online Safety & Scam Awareness',
   ];
 
@@ -20,27 +20,27 @@ export default function SeniorTechSupport() {
 
   const handleCallNow = () => {
     window.open(`tel:${phoneNumber}`, '_self');
-    setStatusMessage('Calling Senior Tech now...');
+    setStatusMessage('Calling SeniorTech now...');
   };
 
   const handleBookVisit = () => {
-    setStatusMessage('Taking you to our contact page.');
+    setStatusMessage('Taking you to our contact page...');
     window.location.assign('/contact');
   };
 
   return (
     <div className="app">
       <header className="hero">
-        <div className="container">
+        <div className="container hero-content">
           <h1>Simple Tech Support for Seniors</h1>
+          <p className="hero-tagline">Friendly technology help that keeps you connected.</p>
+
           <p>
-            Friendly technology help that keeps you connected.
+            Technology should make life easier — not stressful. SeniorTech provides friendly, practical support for older adults who want to feel confident using their phones, tablets, computers, and online services.
           </p>
+
           <p>
-            Technology should make life easier — not stressful. At Senior Tech, we provide friendly, practical support for older adults who want to feel confident using their phones, tablets, computers, and online services.
-          </p>
-          <p>
-            Senior Tech helps families stay connected with children and loved ones through video calls and phone calls, while keeping personal data secure and easy to manage.
+            We help families stay connected through video calls, phone calls, and photo sharing while keeping personal data secure and easy to manage.
           </p>
 
           <div className="buttons">
@@ -62,12 +62,6 @@ export default function SeniorTechSupport() {
           <p>
             Technology is more than devices — it is about people. We help seniors stay connected with their children, grandchildren, friends, and community through video calls, phone support, messaging apps, email, and photo transfers.
           </p>
-          <p>
-            Whether it is a quick call to check in, a video chat with grandchildren, or sending a treasured photo, we make everyday communication feel easier and more comfortable.
-          </p>
-          <p>
-            Because staying connected with the people you love should always be simple.
-          </p>
         </div>
       </section>
 
@@ -75,13 +69,11 @@ export default function SeniorTechSupport() {
         <div className="container">
           <h2>Reliable support for everyday technology</h2>
           <p>
-            Senior Tech provides calm, practical support for smartphones and tablets, computers and laptops, Wi‑Fi setup and connection issues, printer setup and troubleshooting, email support, data transfer when changing phones, online safety, and cloud backup guidance.
+            SeniorTech provides calm, practical support for smartphones, tablets, computers, laptops, Wi‑Fi, printers, email, data transfer, online safety, and cloud backup guidance.
           </p>
+
           <p>
-            We visit homes, explain things clearly, and help with everyday tasks such as video calls, email, Wi‑Fi, printers, scam awareness, and keeping personal information secure.
-          </p>
-          <p>
-            If a device is slow, a connection is missing, or a new phone feels confusing, we can help turn that frustration into something manageable and clear.
+            We visit homes, explain things clearly, and help turn frustrating tech problems into something simple and manageable.
           </p>
         </div>
       </section>
@@ -92,19 +84,47 @@ export default function SeniorTechSupport() {
           <p>
             We believe technology support should be patient, friendly, personal, and safe. We take the time to understand your needs, explain things clearly, and help protect your privacy and personal information.
           </p>
-          <p>
-            We never rush, and we never use confusing jargon. Our goal is to make each visit calm, useful, and reassuring so you leave with more confidence than when you started.
-          </p>
-          <p>
-            We don’t just fix technology problems — we help you feel confident using technology.
-          </p>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section feature-section">
+  <div className="container">
+    <h2>Reliable support for everyday technology</h2>
+    <p className="feature-lead">
+      SeniorTech provides calm, practical support for the devices and services people use every day.
+    </p>
+
+    <div className="feature-grid">
+      <div className="feature-card">
+        <h3>Smartphones & Tablets</h3>
+        <p>Help with setup, updates, calls, photos, apps, and everyday use.</p>
+      </div>
+
+      <div className="feature-card">
+        <h3>Wi‑Fi & Printers</h3>
+        <p>Connection problems, printer setup, and troubleshooting made simple.</p>
+      </div>
+
+      <div className="feature-card">
+        <h3>Email & Video Calls</h3>
+        <p>Support with messages, email accounts, Zoom, FaceTime, and WhatsApp.</p>
+      </div>
+
+      <div className="feature-card">
+        <h3>Safety & Data</h3>
+        <p>Scam awareness, privacy help, and transferring data to a new phone.</p>
+      </div>
+    </div>
+
+    <p className="feature-footer">
+      We visit homes, explain things clearly, and turn frustrating tech issues into something manageable.
+    </p>
+  </div>
+</section>
+
+      {/* <section className="section">
         <div className="container">
           <h2>Services</h2>
-
           <div className="services">
             {services.map((service) => (
               <div key={service} className="card">
@@ -113,7 +133,7 @@ export default function SeniorTechSupport() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="pricing">
         <div className="container">
@@ -135,18 +155,22 @@ export default function SeniorTechSupport() {
       <section className="contact">
         <div className="container">
           <h2>Book a friendly home visit today</h2>
-
           <p>📞 Call: 022 457 6040</p>
           <p>✉ Email: seniortechwellington@gmail.com</p>
-          <p>Senior Tech — making technology simple, safe, and stress-free for seniors.</p>
+          <p>Serving Wellington, Tawa, Porirua, Lower Hutt, and Upper Hutt.</p>
+          <p>SeniorTech — making technology simple, safe, and stress-free for seniors.</p>
 
-          <a href="/contact" className="btn secondary" style={{ display: 'inline-block', textDecoration: 'none' }}>
+          <a
+            href="/contact"
+            className="btn secondary"
+            style={{ display: 'inline-block', textDecoration: 'none' }}
+          >
             Request a Callback
           </a>
         </div>
       </section>
 
-      <footer className="footer">© 2026 Senior Tech</footer>
+      <footer className="footer">© 2026 SeniorTech</footer>
     </div>
   );
 }
