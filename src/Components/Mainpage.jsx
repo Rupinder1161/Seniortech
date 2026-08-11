@@ -89,10 +89,10 @@ export default function SeniorTechSupport() {
 
       <section className="section feature-section">
   <div className="container">
-    <h2>Reliable support for everyday technology</h2>
-    <p className="feature-lead">
+    <h2>Technology Services we can Help With</h2>
+    {/* <p className="feature-lead">
       SeniorTech provides calm, practical support for the devices and services people use every day.
-    </p>
+    </p> */}
 
     <div className="feature-grid">
       <div className="feature-card">
