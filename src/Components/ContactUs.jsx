@@ -6,22 +6,32 @@ export default function ContactUs() {
     name: '',
     phone: '',
     bestTime: '',
+    permission: false,
   });
   const [statusMessage, setStatusMessage] = useState('');
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = event.target;
+    setFormState((prev) => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const trimmedValues = Object.values(formState).map((value) => String(value).trim());
+    const { name, phone, bestTime, permission } = formState;
+    const trimmedValues = [name, phone, bestTime].map((value) => String(value).trim());
     const isEmpty = trimmedValues.every((value) => value.length === 0);
 
     if (isEmpty) {
       setStatusMessage('Please fill in at least one field before submitting.');
+      return;
+    }
+
+    if (!permission) {
+      setStatusMessage('Please agree to be contacted by checking the consent box.');
       return;
     }
 
@@ -74,6 +84,17 @@ export default function ContactUs() {
               <option value="Afternoon">Afternoon</option>
               <option value="Evening">Evening</option>
             </select>
+
+            <label className="checkbox-label" htmlFor="contactPermission">
+              <input
+                id="contactPermission"
+                name="permission"
+                type="checkbox"
+                checked={formState.permission}
+                onChange={handleChange}
+              />
+              I consent to SeniorTech contacting me about this enquiry, in line with New Zealand privacy and communications guidance.
+            </label>
 
             <button type="submit" className="btn secondary">
               Request a Call

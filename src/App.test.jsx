@@ -54,7 +54,17 @@ test('renders the contact form fields', () => {
   expect(screen.getByLabelText(/name/i)).toBeTruthy();
   expect(screen.getByLabelText(/phone number/i)).toBeTruthy();
   expect(screen.getByLabelText(/best time to call/i)).toBeTruthy();
+  expect(screen.getByLabelText(/consent/i)).toBeTruthy();
   expect(screen.getByRole('button', { name: /request a call/i })).toBeTruthy();
+});
+
+test('requires contact consent before submitting the form', () => {
+  render(<ContactUs />);
+
+  fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Jane' } });
+  fireEvent.click(screen.getByRole('button', { name: /request a call/i }));
+
+  expect(screen.getByText(/please agree to be contacted/i)).toBeTruthy();
 });
 
 test('rejects suspicious submissions with a honeypot field', async () => {
