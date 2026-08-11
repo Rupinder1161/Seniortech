@@ -35,7 +35,7 @@ export default function ContactUs() {
       return;
     }
 
-    setStatusMessage('Thanks! We will be in touch soon.');
+    event.currentTarget.submit();
   };
 
   return (
