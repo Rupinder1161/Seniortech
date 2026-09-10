@@ -59,7 +59,7 @@ export default function SeniorTechSupport() {
     <div className="app">
       <header className="hero">
         <div className="container hero-content">
-          <p className="hero-kicker">SeniorTech | Local Wellington home visits</p>
+          {/* <p className="hero-kicker">SeniorTech | Local Wellington home visits</p> */}
           <h1>Simple Tech Support for Seniors in Wellington</h1>
           <p className="hero-tagline">Friendly, patient technology help at home across Wellington.</p>
           <p>Having trouble with your phone, computer, Wi-Fi, or printer? SeniorTech comes to you and explains everything in plain English.</p>
@@ -72,8 +72,6 @@ export default function SeniorTechSupport() {
               Book a Home Visit
             </button>
           </div>
-
-          <p className="hero-phone"><a href="tel:+64224576040">022 457 6040</a> | <a href="mailto:seniortechwellington@gmail.com">seniortechwellington@gmail.com</a></p>
 
           {statusMessage ? <p className="status-message">{statusMessage}</p> : null}
         </div>
@@ -135,7 +133,7 @@ export default function SeniorTechSupport() {
             <h2 id="home-visits-heading">We Come To You</h2>
             <p>No need to unplug everything and carry it to a shop. SeniorTech provides friendly technology support in the comfort of your home.</p>
             <p className="service-areas">Tawa <span aria-hidden="true">•</span> Porirua <span aria-hidden="true">•</span> Wellington <span aria-hidden="true">•</span> Lower Hutt <span aria-hidden="true">•</span> Upper Hutt</p>
-            <a href="/contact" className="text-link">Arrange a home visit <span aria-hidden="true">→</span></a>
+            {/* <a href="/contact" className="text-link">Arrange a home visit <span aria-hidden="true">→</span></a> */}
           </div>
           <div className="home-visits-note" aria-label="What to expect from a home visit">
             <strong>What to expect</strong>

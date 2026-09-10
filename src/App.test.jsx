@@ -63,10 +63,8 @@ test('renders the contact form fields', () => {
 
   expect(screen.getByLabelText(/name/i)).toBeTruthy();
   expect(screen.getByLabelText(/phone number/i)).toBeTruthy();
-  expect(screen.getByLabelText(/email/i)).toBeTruthy();
   expect(screen.getByLabelText(/what do you need help with/i)).toBeTruthy();
   expect(screen.getByLabelText(/best time to call/i)).toBeTruthy();
-  expect(screen.getByLabelText(/additional information/i)).toBeTruthy();
   expect(screen.getByLabelText(/consent/i)).toBeTruthy();
   expect(screen.getByRole('button', { name: /request a call/i })).toBeTruthy();
 });

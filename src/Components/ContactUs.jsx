@@ -5,10 +5,8 @@ export default function ContactUs() {
   const [formState, setFormState] = useState({
     name: '',
     phone: '',
-    email: '',
     service: '',
     bestTime: '',
-    additionalInfo: '',
     permission: false,
   });
   const [statusMessage, setStatusMessage] = useState('');
@@ -24,8 +22,8 @@ export default function ContactUs() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const { name, phone, email, service, bestTime, additionalInfo, permission } = formState;
-    const trimmedValues = [name, phone, email, service, bestTime, additionalInfo].map((value) => String(value).trim());
+    const { name, phone, service, bestTime, permission } = formState;
+    const trimmedValues = [name, phone, service, bestTime].map((value) => String(value).trim());
     const isEmpty = trimmedValues.every((value) => value.length === 0);
 
     if (isEmpty) {
@@ -76,9 +74,6 @@ export default function ContactUs() {
             <label htmlFor="phone">Phone Number</label>
             <input id="phone" name="phone" type="tel" autoComplete="tel" value={formState.phone} onChange={handleChange} />
 
-            <label htmlFor="email">Email (optional)</label>
-            <input id="email" name="email" type="email" autoComplete="email" value={formState.email} onChange={handleChange} />
-
             <label htmlFor="service">What do you need help with?</label>
             <select id="service" name="service" value={formState.service} onChange={handleChange}>
               <option value="">Please choose one</option>
@@ -106,9 +101,6 @@ export default function ContactUs() {
               <option value="Evening">Evening</option>
             </select>
 
-            <label htmlFor="additionalInfo">Additional information (optional)</label>
-            <textarea id="additionalInfo" name="additionalInfo" rows="4" value={formState.additionalInfo} onChange={handleChange} placeholder="Tell us a little about what is happening" />
-
             <label className="checkbox-label" htmlFor="contactPermission">
               <input
                 id="contactPermission"
@@ -117,7 +109,7 @@ export default function ContactUs() {
                 checked={formState.permission}
                 onChange={handleChange}
               />
-              I consent to SeniorTech contacting me about this enquiry.
+              <span>I consent to SeniorTech contacting me about this enquiry.</span>
             </label>
 
             <button type="submit" className="btn secondary">
