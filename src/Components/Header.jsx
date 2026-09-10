@@ -44,7 +44,7 @@ export default function Header({ route }) {
           <a href={`${homePrefix}#reviews`} style={navLinkStyle}>Reviews</a>
           <a href="/contact" style={{ ...navLinkStyle, color: route === 'contact' ? '#17804f' : '#1f2937' }}>Contact</a>
         </nav>
-        <a className="header-phone" href="tel:+64224576040" aria-label="Call SeniorTech on 022 457 6040">☎ <span>022 457 6040</span></a>
+        {/* <a className="header-phone" href="tel:+64224576040" aria-label="Call SeniorTech on 022 457 6040">☎ <span>022 457 6040</span></a> */}
       </div>
     </header>
   );
