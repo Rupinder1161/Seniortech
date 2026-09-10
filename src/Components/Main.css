@@ -1136,7 +1136,13 @@ summary:focus-visible {
 
 @media (max-width: 640px) {
   .header-inner {
-    justify-content: space-between;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .brand-link {
+    width: 100%;
   }
 
   .header-phone {
@@ -1151,6 +1157,10 @@ summary:focus-visible {
 
   .menu-toggle {
     order: 1;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .header-nav {
@@ -1162,11 +1172,53 @@ summary:focus-visible {
   }
 
   .hero h1 {
-    font-size: 2.45rem;
+    font-size: clamp(2rem, 9vw, 2.3rem);
   }
 
   .hero-tagline {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .section {
+    padding: 42px 0;
+  }
+
+  .section h2 {
+    font-size: clamp(1.55rem, 7vw, 2rem);
+  }
+
+  .section p,
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .eyebrow,
+  .hero-kicker {
+    font-size: 0.75rem !important;
+  }
+
+  .btn {
+    padding: 13px 20px;
+    font-size: 1rem;
+  }
+
+  .feature-card,
+  .about-card,
+  .price-card {
+    padding: 1.2rem;
+  }
+
+  .feature-card h3,
+  .step-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .contact-details {
+    font-size: 0.95rem;
   }
 
   .hero-actions .btn,
