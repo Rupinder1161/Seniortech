@@ -167,6 +167,24 @@
         font-family: inherit;
         width: 100%;
       }
+      .consent-label {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 14px;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        background: #f8fafc;
+        color: #334155;
+        line-height: 1.5;
+      }
+      .consent-label input {
+        width: 1rem;
+        height: 1rem;
+        margin-top: 4px;
+        padding: 0;
+        flex: 0 0 auto;
+      }
       textarea { resize: vertical; }
       select {
         background: white;
@@ -217,9 +235,6 @@
         <label for="phone">Phone Number</label>
         <input id="phone" name="phone" type="tel" autocomplete="tel" required />
 
-        <label for="email">Email (optional)</label>
-        <input id="email" name="email" type="email" autocomplete="email" />
-
         <label for="service">What do you need help with?</label>
         <select id="service" name="service">
           <option value="">Please choose one</option>
@@ -242,12 +257,9 @@
           <option value="Evening">Evening</option>
         </select>
 
-        <label for="additionalInfo">Additional information (optional)</label>
-        <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Tell us a little about what is happening"></textarea>
-
-        <label for="contactPermission" style="display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;color:#334155;line-height:1.5;">
+        <label class="consent-label" for="contactPermission">
           <input id="contactPermission" name="permission" type="checkbox" required />
-          I consent to Senior Tech contacting me about this enquiry.
+          <span>I consent to Senior Tech contacting me about this enquiry.</span>
         </label>
 
         <button type="submit">Request a Call</button>
