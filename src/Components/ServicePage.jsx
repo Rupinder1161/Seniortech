@@ -9,7 +9,7 @@ const relatedLinks = [
   { href: '/video-call-help', label: 'Video Call Help' },
 ];
 
-export default function ServicePage({ title, intro, sections, slug, cta, serviceType, highlights, checklist }) {
+export default function ServicePage({ title, intro, sections, slug, cta, serviceType, highlights, checklist, image, localImage }) {
   useEffect(() => {
     const existing = document.getElementById('service-schema');
     if (existing) existing.remove();
@@ -41,12 +41,15 @@ export default function ServicePage({ title, intro, sections, slug, cta, service
   }, [title, intro, slug, serviceType]);
 
   return (
-    <div className="app">
-      <header className="hero">
-        <div className="container">
+    <div className="service-page">
+      <header
+        className="service-hero"
+        style={{ backgroundImage: `linear-gradient(135deg, rgba(17, 24, 39, 0.78), rgba(37, 99, 235, 0.74)), url(${image})` }}
+      >
+        <div className="container service-hero-inner">
           <p className="eyebrow">Senior Tech Wellington</p>
           <h1>{title}</h1>
-          <p>{intro}</p>
+          <p className="lead">{intro}</p>
           <div className="buttons">
             <a href="/contact" className="btn primary">
               {cta}
@@ -58,11 +61,11 @@ export default function ServicePage({ title, intro, sections, slug, cta, service
         </div>
       </header>
 
-      <section className="section">
+      <section className="section service-highlights">
         <div className="container">
-          <div className="services">
+          <div className="services service-grid">
             {highlights.map((item) => (
-              <div key={item} className="card">
+              <div key={item} className="card service-card">
                 <h3>{item}</h3>
               </div>
             ))}
@@ -71,36 +74,37 @@ export default function ServicePage({ title, intro, sections, slug, cta, service
       </section>
 
       <section className="section">
-        <div className="container">
-          <div className="about-card">
+        <div className="container service-layout">
+          <div className="about-card service-content-card">
+            {localImage ? (
+              <div className="service-local-spotlight">
+                <img src={localImage} alt={`${title} local area`} />
+              </div>
+            ) : null}
             {sections.map((section) => (
-              <div key={section.heading} style={{ marginTop: '1rem' }}>
+              <div key={section.heading} className="service-copy-block">
                 <h2>{section.heading}</h2>
                 <p>{section.body}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="price-card">
+          <aside className="price-card service-checklist-card">
             <h2>What you can expect</h2>
             <ul>
               {checklist.map((item) => (
                 <li key={item}>✅ {item}</li>
               ))}
             </ul>
-          </div>
+          </aside>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <div className="about-card">
+          <div className="about-card service-related-card">
             <h2>Related services</h2>
-            <ul>
+            <ul className="service-related-list">
               {relatedLinks.map((link) => (
                 <li key={link.href}>
                   <a href={link.href}>{link.label}</a>

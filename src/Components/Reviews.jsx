@@ -26,15 +26,16 @@ export default function Reviews() {
   return (
     <section className="section">
       <div className="container">
-        <h2>Trusted by families across Wellington, Tawa, Upper Hutt, Lower Hutt, and Porirua</h2>
-        <div className="services">
+        <p className="eyebrow">What families say</p>
+        <h2>Trusted by families across the Wellington region</h2>
+        <div className="services review-grid">
           {reviews.map((review) => (
-            <div key={review.name} className="card">
-              <h3>{review.rating}</h3>
+            <article key={review.name} className="card review-card">
+              <p className="review-rating" aria-label="5 out of 5 stars">{review.rating}</p>
               <p style={{ fontWeight: 700, marginTop: '8px' }}>{review.name}</p>
               <p style={{ color: '#64748b', marginBottom: '10px' }}>{review.location}</p>
               <p>{review.text}</p>
-            </div>
+            </article>
           ))}
         </div>
       </div>

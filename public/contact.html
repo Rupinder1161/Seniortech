@@ -11,7 +11,7 @@
       }
       body {
         font-family: Arial, sans-serif;
-        background: #f8fafc;
+        background: #f3fbf6;
         color: #1f2937;
         margin: 0;
         padding: 0;
@@ -46,7 +46,7 @@
       .brand-title {
         font-size: clamp(1rem, 2vw, 1.2rem);
         font-weight: 700;
-        color: #2563eb;
+        color: #17804f;
       }
       .brand-subtitle {
         font-size: 0.72rem;
@@ -115,6 +115,33 @@
         color: #475569;
         line-height: 1.8;
       }
+      .locations-wrap {
+        width: 90%;
+        max-width: 1100px;
+        margin: 0 auto 3rem;
+      }
+      .location-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 1rem;
+      }
+      .location-card {
+        background: white;
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        padding: 1.5rem 1.25rem;
+      }
+      .location-card h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1.15rem;
+        color: #1e3a8a;
+      }
+      .location-card p {
+        margin: 0;
+        color: #475569;
+        line-height: 1.6;
+      }
       .success-message {
         margin-top: 1rem;
         padding: 1rem 1.25rem;
@@ -132,12 +159,15 @@
       label {
         font-weight: 600;
       }
-      input, select, button {
+      input, select, textarea, button {
         padding: 0.8rem 1rem;
         border-radius: 10px;
         border: 1px solid #cbd5e1;
         font-size: 1rem;
+        font-family: inherit;
+        width: 100%;
       }
+      textarea { resize: vertical; }
       select {
         background: white;
         color: #334155;
@@ -162,9 +192,12 @@
           ☰
         </button>
 
-        <nav class="header-nav is-open" aria-label="Primary">
+        <nav class="header-nav" aria-label="Primary">
           <a href="/" style="color: #1f2937; text-decoration: none; font-weight: 500;">Home</a>
+          <a href="/#services" style="color: #1f2937; text-decoration: none; font-weight: 500;">Services</a>
+          <a href="/#how-it-works" style="color: #1f2937; text-decoration: none; font-weight: 500;">How It Works</a>
           <a href="/about" style="color: #1f2937; text-decoration: none; font-weight: 500;">About</a>
+          <a href="/#reviews" style="color: #1f2937; text-decoration: none; font-weight: 500;">Reviews</a>
           <a href="/contact" style="color: #2563eb; text-decoration: none; font-weight: 500;">Contact</a>
         </nav>
       </div>
@@ -182,7 +215,24 @@
         <input id="name" name="name" type="text" required />
 
         <label for="phone">Phone Number</label>
-        <input id="phone" name="phone" type="tel" required />
+        <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+
+        <label for="email">Email (optional)</label>
+        <input id="email" name="email" type="email" autocomplete="email" />
+
+        <label for="service">What do you need help with?</label>
+        <select id="service" name="service">
+          <option value="">Please choose one</option>
+          <option>Phone / Tablet</option>
+          <option>Computer</option>
+          <option>Wi-Fi</option>
+          <option>Printer</option>
+          <option>New Device</option>
+          <option>Data Transfer</option>
+          <option>Email / Video Calls</option>
+          <option>Security / Scam Concern</option>
+          <option>Other</option>
+        </select>
 
         <label for="bestTime">Best Time to Call</label>
         <select id="bestTime" name="bestTime" required>
@@ -192,12 +242,12 @@
           <option value="Evening">Evening</option>
         </select>
 
-        <label for="referralCode">Referral Code <span style="color: #059669; font-weight: 600;">(Get $10 Off!)</span></label>
-        <input id="referralCode" name="referralCode" type="text" placeholder="Enter referral code if you have one" />
+        <label for="additionalInfo">Additional information (optional)</label>
+        <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Tell us a little about what is happening"></textarea>
 
         <label for="contactPermission" style="display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;color:#334155;line-height:1.5;">
-          <input id="contactPermission" name="contactPermission" type="checkbox" required />
-          I consent to Senior Tech contacting me about this enquiry in line with New Zealand privacy and communications guidance.
+          <input id="contactPermission" name="permission" type="checkbox" required />
+          I consent to Senior Tech contacting me about this enquiry.
         </label>
 
         <button type="submit">Request a Call</button>
@@ -207,7 +257,43 @@
       </form>
     </div>
 
+    <section class="locations-wrap">
+      <div class="container" style="width: 100%; max-width: 1100px; margin: 0 auto;">
+        <div class="location-grid">
+          <div class="location-card">
+            <h2>Tawa</h2>
+            <p>Friendly tech support for older adults in Tawa.</p>
+          </div>
+          <div class="location-card">
+            <h2>Porirua</h2>
+            <p>Phone, computer, and Wi‑Fi help for families in Porirua.</p>
+          </div>
+          <div class="location-card">
+            <h2>Lower Hutt</h2>
+            <p>Patient support with tablets, laptops, phones, and scam guidance.</p>
+          </div>
+          <div class="location-card">
+            <h2>Upper Hutt</h2>
+            <p>Home-based help for video calls, email, and everyday tech setup.</p>
+          </div>
+          <div class="location-card">
+            <h2>Paraparaumu</h2>
+            <p>Simple, stress-free tech support for seniors around Paraparaumu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <script>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navigation = document.querySelector('.header-nav');
+
+      if (menuToggle && navigation) {
+        menuToggle.addEventListener('click', () => {
+          navigation.classList.toggle('is-open');
+        });
+      }
+
       const form = document.getElementById('contact-form');
       const successMessage = document.getElementById('form-success');
       const params = new URLSearchParams(window.location.search);
