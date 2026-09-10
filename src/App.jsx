@@ -142,6 +142,21 @@ function App() {
     }
   }, [route]);
 
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+
+    if (!hash) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      return undefined;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [route]);
+
   const renderRoute = () => {
     if (route === 'about') return <About />;
     if (route === 'contact') return <ContactUs />;
